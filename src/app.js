@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
-const request = require("request");
+// const request = require("request");
 const geoCode = require("./utils/geoCode");
 const getForecast = require("./utils/forecast");
 const port = process.env.PORT || 3000;
