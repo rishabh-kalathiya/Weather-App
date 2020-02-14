@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Weather</title>
+    <link rel="icon" href="/img/weather.png">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <h3>Today's Weather</h3>
+        <form>
+            <input type="text" id="location" placeholder="Enter the location">
+            <button>Search</button>
+        </form>
+        <h4></h4>
+    </div>
+
+    {{>footer}}
+    <script type="text/javascript" src="/js/script.js"></script>
+</body>
+
+</html>
