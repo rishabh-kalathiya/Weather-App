@@ -12,6 +12,7 @@ const geoLocation = (address, callback) => {
       return response.json();
     })
     .then(function(body) {
+      if (body.error){return callback("can not get location service",undefined)}
       callback(undefined, {
         location: body.features[0].place_name,
         latitude: body.features[0].center[1],

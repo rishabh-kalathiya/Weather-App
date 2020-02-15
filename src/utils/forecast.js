@@ -9,14 +9,15 @@ const getForecast = (lat, long, callback) => {
     encodeURIComponent(long) +
     "?units=si";
 
-    fetch(url).then(function(response){
+  fetch(url)
+    .then(function(response) {
       return response.json();
-    }).then(function(body){
-     
-            callback(
-              undefined,
-              `The weather is ${body.daily.data[0].summary} it is currently ${body.currently.temperature} degrees(si) hot. There is a ${body.currently.precipProbability}% chance of raining today!`
-            );
+    })
+    .then(function(body) {
+      callback(
+        undefined,
+        `The weather is ${body.daily.data[0].summary} it is currently ${body.currently.temperature} degrees(si) hot. There is a ${body.currently.precipProbability}% chance of raining today!`
+      );
     });
   // request({ url, json: true }, (error, { body }) => {
   //   if (error) {

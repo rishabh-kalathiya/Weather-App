@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const hbs = require("hbs");
+// const bodyParser = require("body-parser");
 // const request = require("request");
 const geoCode = require("./utils/geoCode");
 const getForecast = require("./utils/forecast");
@@ -19,6 +20,8 @@ hbs.registerPartials(partialsPath);
 
 //setup static directory to serve
 app.use(express.static(staticDir));
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 app.get("", (req, res) => {
   res.render("index", {
@@ -27,8 +30,24 @@ app.get("", (req, res) => {
   });
 });
 
+/* start exprmnt */
+
+app.post("/location", (req, res) => {
+  return res.redirect("/weather");
+});
+
+/* end of exprmnt */
+
 app.get("/weather", (req, res) => {
+ /*  const weatherForm = document.querySelector("form");
+const search = document.querySelector("input");
+const board = document.querySelector("h4");
+
+weatherForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    const location = search.value; */
   const location = req.query.address;
+  console.log(location);
   if (!location) {
     return res.send({
       error: "you must provide a valid address!"
@@ -50,6 +69,7 @@ app.get("/weather", (req, res) => {
       });
     });
   });
+// });
 });
 
 app.get("/help", (req, res) => {
