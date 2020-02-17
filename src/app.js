@@ -30,7 +30,7 @@ app.get("", (req, res) => {
   });
 });
 
-/* start exprmnt */
+/* start exprmnt 
 
 app.post("/location", (req, res) => {
   // console.log("post rout called");
@@ -39,9 +39,10 @@ app.post("/location", (req, res) => {
   res.redirect("/weather");
 });
 
-/* end of exprmnt */
+  end of exprmnt */
 
-app.get("/weather", (req, res) => {
+app.post("/weather", (req, res) => {
+  location = req.body.address;
   // console.log(location);
   if (!location) {
     return res.render("error",{
