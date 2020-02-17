@@ -14,6 +14,14 @@ const getForecast = (lat, long, callback) => {
       return response.json();
     })
     .then(function(body) {
+      if (error) {
+        callback("can not connect to the weather service!", undefined);
+      } else if (body.error) {
+        callback(
+          "Can not get weather info! pls try another search!",
+          undefined
+        );
+      }
       callback(
         undefined,
         `The weather is ${body.daily.data[0].summary} it is currently ${body.currently.temperature} degrees(si) hot. There is a ${body.currently.precipProbability}% chance of raining today!`

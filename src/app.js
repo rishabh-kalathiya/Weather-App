@@ -44,25 +44,25 @@ app.post("/location", (req, res) => {
 app.get("/weather", (req, res) => {
   // console.log(location);
   if (!location) {
-    return res.send({
+    return res.render("error",{
       error: "you must provide a valid address!"
     });
   }
   geoCode(location, (error, { latitude, longitude, location } = {}) => {
     if (error) {
-      return res.send({ error });
+      return res.render("error",{ error });
     }
     getForecast(latitude, longitude, (error, forecastData) => {
       if (error) {
-        return res.send({ error });
+        return res.render("error",{ error });
       }
       // console.log("Location:", location);
       // console.log("Weather:", forecastData);
       res.render("index", {
         title: "Weather App",
         name: "Rishabh Kalathiya",
-        location,
-        forecast: forecastData
+        location:"Location: "+location,
+        forecast: "Weather: "+forecastData
       });
     });
   });
