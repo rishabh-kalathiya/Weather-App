@@ -14,7 +14,7 @@ const getForecast = (lat, long, callback) => {
       return response.json();
     })
     .then(function(body) {
-      if (error) {
+      if (body.error) {
         callback("can not connect to the weather service!", undefined);
       } else if (body.error) {
         callback(
