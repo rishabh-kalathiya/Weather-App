@@ -28,7 +28,7 @@ h4{
   color:#333333
 }
 
-#location{
+#address{
   border: 1px solid grey;
   height: 32px;
   padding-left: 5px;
@@ -47,6 +47,7 @@ h1 {
   color: rgb(0, 44, 95);
   font-size: 64px;
   margin-bottom: 16px;
+  margin-left: -5px;
 }
 
 header a{
