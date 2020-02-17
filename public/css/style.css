@@ -25,7 +25,8 @@ header{
 }
 
 h4{
-  color:#333333
+  color:#333333;
+  font-weight: lighter;
 }
 
 #address{
